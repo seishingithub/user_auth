@@ -19,7 +19,7 @@ feature 'user can register' do
     expect(page).to have_content 'Something went wrong'
   end
 
-  scenario 'user goes to login page and can login' do
+  scenario 'user goes to login page and can login and then logout' do
     User.create!(
       username: 'foo',
       password: 'password',
@@ -32,5 +32,10 @@ feature 'user can register' do
 
     expect(page).to have_content 'Thanks for logging in!'
     expect(page).to have_content 'foo'
+
+    click_on 'Log Out'
+    expect(page).to have_no_content 'Thanks for loggin in!'
+    expect(page).to have_no_content 'foo'
   end
+
 end
