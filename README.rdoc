@@ -1,0 +1,16 @@
+User authentication
+
+# User model with username and password_digest columns (both as strings)
+
+# User Registration (require username)
+  # Visit registration page
+  # Fill in username
+  # Fill in password
+  # Fill in password_confirmation
+  # Submit
+
+# User Login
+  # Visit login page
+  # Fill in username
+  # Fill in password
+  # Submit
