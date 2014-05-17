@@ -18,4 +18,19 @@ feature 'user can register' do
     click_on 'Register'
     expect(page).to have_content 'Something went wrong'
   end
+
+  scenario 'user goes to login page and can login' do
+    User.create!(
+      username: 'foo',
+      password: 'password',
+      password_confirmation: 'password'
+    )
+    visit login_path
+    fill_in 'session[username]', with: 'foo'
+    fill_in 'session[password]', with: 'password'
+    click_on 'Login'
+
+    expect(page).to have_content 'Thanks for logging in!'
+    expect(page).to have_content 'foo'
+  end
 end
